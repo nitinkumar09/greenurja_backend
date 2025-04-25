@@ -1,5 +1,5 @@
 const express = require("express");
-const Carousel = require("../../models/carousel");
+const Carousel = require("../../models/Carousel");
  exports.postCarousel = async (req, res) => {
     try {
         console.log("Received request to create carousel item:", req.body);
