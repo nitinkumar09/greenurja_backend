@@ -2,7 +2,7 @@ const Product = require("../../models/Products");
 exports.postProduct = async (req, res) => {
     try {
         const { name, image, dealOfTheDay, newArrival, price, gst, discount, specifications, category, description, stock } = req.body;
-        console.log("Received product data:", req.body);
+        // console.log("Received product data:", req.body);
         const newProduct = new Product({
             name,
             image,
