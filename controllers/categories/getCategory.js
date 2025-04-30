@@ -6,7 +6,7 @@ exports.getCategory = async (req, res) => {
     try {
         const categoryId = req.params._id;       
         console.log(categoryId)                   // read the category filter :contentReference[oaicite:0]{index=0}
-        const products = await Product.find({ category: categoryId });   // query Mongoose by ObjectId field :contentReference[oaicite:1]{index=1}
+        const products = await Product.find({ category: categoryId }).populate('category', 'name -_id');   // query Mongoose by ObjectId field :contentReference[oaicite:1]{index=1}
         return res.json(products);                                       // send JSON array back to client :contentReference[oaicite:2]{index=2}
       } catch (err) {
         console.error(err);
