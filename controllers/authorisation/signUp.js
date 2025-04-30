@@ -1,8 +1,8 @@
 const User = require("../../models/User"); // Adjust the path as necessary
 const jwt = require("jsonwebtoken");
 exports.signUp = async (req, res) => {
-    const { name, email, password} = req.body;
-    // console.log("Received sign-up data:", req.body);
+    const { firstName,lastName, email, password} = req.body;
+    console.log("Received sign-up data:", req.body);
 
     try {
         // Check if the user already exists
@@ -14,7 +14,8 @@ exports.signUp = async (req, res) => {
         // Create a new user
         
         const newUser = new User({
-            name,
+            firstName,
+            lastName,
             email,
             password,
         });

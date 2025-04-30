@@ -1,0 +1,14 @@
+// const Category = require('../../models/Category');
+const Product = require('../../models/Product'); // Import the Product model
+exports.getCategory = async (req, res) => {
+   // Extract the category ID from the request parameters
+
+    try {
+        const categoryId = req.query.category;                          // read the category filter :contentReference[oaicite:0]{index=0}
+        const products = await Product.find({ category: categoryId });   // query Mongoose by ObjectId field :contentReference[oaicite:1]{index=1}
+        return res.json(products);                                       // send JSON array back to client :contentReference[oaicite:2]{index=2}
+      } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Server error' });
+      }
+}
