@@ -6,6 +6,9 @@ const postCategories=require("../controllers/categories/postCategories");
 const postproducts = require("../controllers/products/postProduct");
 const getproducts = require("../controllers/products/getProducts");
 const getProduct = require("../controllers/products/getProduct");
+const signUp = require("../controllers/authorisation/signUp");
+const login = require("../controllers/authorisation/login");
+const resetPassword = require("../controllers/authorisation/resetPassword");
 router.post("/carousel", postCarousel.postCarousel);
 
 router.get("/categories",getCategories.getCategories);
@@ -14,4 +17,8 @@ router.post("/categories",postCategories.postCategories);
 router.post("/products", postproducts.postProduct);
 router.get("/products", getproducts.getProducts);
 router.get("/Product/:_id", getProduct.getProduct);
+router.post("/signUp", signUp.signUp);
+router.post("/login", login.login);
+router.post("/resetPassword", resetPassword.resetPassword);
+
 module.exports = router;

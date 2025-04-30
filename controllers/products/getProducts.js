@@ -1,6 +1,5 @@
 const Product = require("../../models/Products");
 exports.getProducts = async (req, res) => {
-    const {_id}=req.params;
     try {
         const products = await Product.find({}).populate('category', 'name -_id');
         res.status(200).json(products);
