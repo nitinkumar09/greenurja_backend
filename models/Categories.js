@@ -7,7 +7,10 @@ const categorySchema=new Schema({
     },
     image:{
         type:String,
-    }
+    },
+    path:{
+        type:String,
+    },
    
 }); 
 const Category=mongoose.model("Category",categorySchema);
