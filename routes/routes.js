@@ -10,6 +10,8 @@ const signUp = require("../controllers/authorisation/signUp");
 const login = require("../controllers/authorisation/login");
 const resetPassword = require("../controllers/authorisation/resetPassword");
 const getCategory = require("../controllers/categories/getCategory");
+const updateProduct = require("../controllers/products/updateProduct");
+
 router.post("/carousel", postCarousel.postCarousel);
 
 router.get("/categories",getCategories.getCategories);
@@ -18,6 +20,8 @@ router.post("/categories",postCategories.postCategories);
 router.post("/products", postproducts.postProduct);
 router.get("/products", getproducts.getProducts);
 router.get("/Product/:_id", getProduct.getProduct);
+router.put("/product", updateProduct.updateProduct); // Assuming you have an updateProduct function in postproducts
+
 router.post("/signUp", signUp.signUp);
 router.post("/login", login.login);
 router.post("/resetPassword", resetPassword.resetPassword);

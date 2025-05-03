@@ -5,10 +5,10 @@ const productSchema=new Schema({
         type:String,
         required:true
     },
-    image:{
+    image:[{ url:{
         type:String,
         required:true
-    },
+    }}],
     dealOfTheDay:{
         type:Boolean,
         default:false
