@@ -22,6 +22,7 @@ app.use("/api", route);
 function callSmsAlert(params) {
   return new Promise((resolve, reject) => {
     const qs = new URLSearchParams(params).toString();
+    console.log(qs);
     const req = https.request(
       `https://www.smsalert.co.in/api/push.json?${qs}`,
       { method: 'POST' },
