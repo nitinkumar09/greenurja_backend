@@ -1,10 +1,11 @@
 const Category = require('../../models/Categories');
 exports.postCategories = async (req, res) => {
     try {
-        const { name,image } = req.body;
+        const { name,image,path } = req.body;
         const newCategory = new Category({
             name,
-            image
+            image,
+            path
         });
         await newCategory.save();
         res.status(201).json(newCategory);
