@@ -1,8 +1,9 @@
 const Product = require("../../models/Products");
 exports.postProduct = async (req, res) => {
+    console.log("Received request to create product:", req.body);
     try {
         const { name, image, dealOfTheDay, newArrival, price, gst, discount, specifications, category, description, stock } = req.body;
-        // console.log("Received product data:", req.body);
+        console.log("Received product data:", req.body);
         const newProduct = new Product({
             name,
             image,
@@ -24,3 +25,4 @@ exports.postProduct = async (req, res) => {
     }
 }
 // Compare this snippet from GreenUrja-main/backend/models/Categories.js:   
+
