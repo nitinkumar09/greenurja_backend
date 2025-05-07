@@ -3,6 +3,7 @@ const router = express.Router();
 const verifyToken = require("../middlewares/verifyToken");
 
 const postCarousel = require("../controllers/carousel/postCarousel");
+const getCarousel = require("../controllers/carousel/getCarousel");
 const getCategories=require("../controllers/categories/getCategories");
 const postCategories=require("../controllers/categories/postCategories");
 const postproducts = require("../controllers/products/postProduct");
@@ -18,7 +19,7 @@ const addWishList = require("../controllers/wishList/addWishList");
 const deleteWishList = require("../controllers/wishList/deleteWishList");
 
 router.post("/carousel", postCarousel.postCarousel);
-
+router.get("/carousel", getCarousel.getCarousel);
 router.get("/categories",getCategories.getCategories);
 router.post("/categories",postCategories.postCategories);
 
