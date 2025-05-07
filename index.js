@@ -17,17 +17,17 @@ const app = express();
 const route = require("./routes/routes");
 app.use(cors());
 app.use(express.json());
-app.use(
-  session({
-    name: "sid",
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
-    cookie: { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true },
-  })
-);
-
+// app.use(
+//   session({
+//     name: "sid",
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//     store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
+//     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30, httpOnly: true },
+//   })
+// );
+console.log(process.env.MONGO_URI);
 app.get("/", (req, res) => {
   console.log(req.session.id);
   res.send("Hello World!");
