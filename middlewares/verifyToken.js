@@ -4,6 +4,7 @@ exports.verifyToken = (req, res, next) => {
   
     const authHeader = req.headers["authorization"];
   
+  
     if (authHeader) {
       const token = authHeader.split(" ")[1]; // Assuming the token is in the format "Bearer <token>"
      console.log(token);
@@ -11,6 +12,7 @@ exports.verifyToken = (req, res, next) => {
         if (err) {
           return res.status(401).json({ error: "Unauthorized" });
         } else {
+          
           req.user = decoded;
           next();
         }

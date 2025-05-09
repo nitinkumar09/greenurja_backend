@@ -1,4 +1,4 @@
-const express = require("express");
+
 const Carousel = require("../../models/Carousel");
  exports.postCarousel = async (req, res) => {
     try {

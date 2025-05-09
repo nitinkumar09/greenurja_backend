@@ -1,15 +1,23 @@
-// server/models/Cart.js
-const { Schema, model } = require("mongoose");
-const CartSchema = new Schema({
-  sessionId: String,        // for guests
-  userId: String,           // for authenticated users
+// models/Cart.js
+const mongoose = require('mongoose');
+
+const CartSchema = new mongoose.Schema({
+  ownerId: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+    index: true
+  },
   items: [
     {
-      productId: String,
-      quantity: Number,
-    },
-  ],
-});
-Cart= model("Cart", CartSchema);
+      productId: {
+        type: mongoose.Types.ObjectId,
+        ref: 'Product',
+        required: true
+      },
+      quantity: { type: Number, required: true, min: 1 }
+    }
+  ]
+}, { timestamps: true });
 
-module.exports=Cart; 
+const Cart = mongoose.model('Cart', CartSchema);
+module.exports = Cart;

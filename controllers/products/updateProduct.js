@@ -2,7 +2,7 @@ const Product = require('../../models/Products');
 
 exports.updateProduct = async (req, res) => {
     try {
-    
+        console.log("Update Product Request Body:", req.body); // Log the request body for debugging
         const {id,name, image, dealOfTheDay, newArrival, price, gst, discount, specifications, category, description, stock } = req.body;
 
         // Find the product by ID and update it
