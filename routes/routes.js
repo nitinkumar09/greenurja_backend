@@ -41,7 +41,7 @@ router.post("/otp", postOtp.postOtp); // Adjust the path as necessary
   router.post("/wishList",verifyToken.verifyToken,addWishList.addWishList);
  // Adjust the path as necessary
  router.delete("/wishList",verifyToken.verifyToken,deleteWishList.deleteWishList); // Adjust the path as necessary
- router.get("/wishList",verifyToken.verifyToken,getproducts.getProducts); // Adjust the path as necessary  
+ router.get("/wishList",verifyToken.verifyToken,getWishList.getWishList); // Adjust the path as necessary  
 
  router.post("/cart",verifyToken.verifyToken,postCart.postCart); // Adjust the path as necessary
  router.delete("/cart",verifyToken.verifyToken,deleteCart.deleteCart); // Adjust the path as necessary
