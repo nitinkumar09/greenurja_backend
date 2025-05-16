@@ -4,8 +4,8 @@ const verifyToken = require("../middlewares/verifyToken");
 
 const postCarousel = require("../controllers/carousel/postCarousel");
 const getCarousel = require("../controllers/carousel/getCarousel");
-const getCategories=require("../controllers/categories/getCategories");
-const postCategories=require("../controllers/categories/postCategories");
+const getCategories = require("../controllers/categories/getCategories");
+const postCategories = require("../controllers/categories/postCategories");
 const postproducts = require("../controllers/products/postProduct");
 const getproducts = require("../controllers/products/getProducts");
 const getProduct = require("../controllers/products/getProduct");
@@ -21,10 +21,11 @@ const getWishList = require("../controllers/wishList/getWishList");
 const deleteWishList = require("../controllers/wishList/deleteWishList");
 const postCart = require("../controllers/cart/postCart");
 const deleteCart = require("../controllers/cart/deleteCart");
+const mergeCart = require("../controllers/cart/merge");
 router.post("/carousel", postCarousel.postCarousel);
 router.get("/carousel", getCarousel.getCarousel);
-router.get("/categories",getCategories.getCategories);
-router.post("/categories",postCategories.postCategories);
+router.get("/categories", getCategories.getCategories);
+router.post("/categories", postCategories.postCategories);
 
 router.post("/products", postproducts.postProduct);
 router.get("/products", getproducts.getProducts);
@@ -38,12 +39,16 @@ router.post("/resetPassword", resetPassword.resetPassword);
 router.get("/category/:_id", getCategory.getCategory); // Adjust the path as necessary
 router.post("/otp", postOtp.postOtp); // Adjust the path as necessary
 
-  router.post("/wishList",verifyToken.verifyToken,addWishList.addWishList);
- // Adjust the path as necessary
- router.delete("/wishList",verifyToken.verifyToken,deleteWishList.deleteWishList); // Adjust the path as necessary
- router.get("/wishList",verifyToken.verifyToken,getWishList.getWishList); // Adjust the path as necessary  
+router.post("/wishList", verifyToken.verifyToken, addWishList.addWishList);
+// Adjust the path as necessary
+router.delete("/wishList", verifyToken.verifyToken, deleteWishList.deleteWishList); // Adjust the path as necessary
+router.get("/wishList", verifyToken.verifyToken, getWishList.getWishList); // Adjust the path as necessary  
 
- router.post("/cart",verifyToken.verifyToken,postCart.postCart); // Adjust the path as necessary
- router.delete("/cart",verifyToken.verifyToken,deleteCart.deleteCart); // Adjust the path as necessary
+router.post("/cart", verifyToken.verifyToken, postCart.postCart); // Adjust the path as necessary
+router.delete("/cart", verifyToken.verifyToken, deleteCart.deleteCart); // Adjust the path as necessary
+router.post("/cart/merge", verifyToken.verifyToken, mergeCart.mergeCart);
+// router.post("/cart/merge", mergeCart.mergeCart);
+
+
 
 module.exports = router;
