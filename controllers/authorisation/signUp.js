@@ -12,6 +12,9 @@ exports.signUp = async (req, res) => {
         }
 
         // Create a new user add phone debugging
+        // Crehghjhkkjkjhkjkhkhjj
+        // Createhgjghggkhkgkggjg
+
 
         const newUser = new User({
             firstName,
