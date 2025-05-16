@@ -26,7 +26,7 @@ exports.signUp = async (req, res) => {
             phone: String(phone),
         });
 
-        const token = jwt.sign({ id: newUser._id, email }, 'sshhh', { expiresIn: '1h' });
+        const token = jwt.sign({ id: newUser._id, email }, 'greenurjabackendjwt', { expiresIn: '24h' });
 
         // console.log("Generated token:", token);
         // Save the user to the database

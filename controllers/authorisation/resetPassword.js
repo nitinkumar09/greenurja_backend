@@ -1,6 +1,6 @@
 const User = require("../../models/User"); // Adjust the path as necessary
-exports.resetPassword=(async(req,res)=>{
-    const { email, newPassword } = req.body;
+exports.resetPassword = (async (req, res) => {
+  const { email, newPassword } = req.body;
   try {
     // Check if the user with the provided email exists
     const user = await User.findOne({ email });

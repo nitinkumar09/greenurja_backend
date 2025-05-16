@@ -8,9 +8,9 @@ exports.verifyToken = (req, res, next) => {
   if (authHeader) {
     const token = authHeader.split(" ")[1]; // Assuming the token is in the format "Bearer <token>"
     console.log(token);
-    jwt.verify(token, "sshhh", (err, decoded) => {
+    jwt.verify(token, "greenurjabackendjwt", (err, decoded) => {
       if (err) {
-        return res.status(401).json({ error: "Unauthorized" });
+        return res.status(401).json({ error: "Unauthorized1" });
       } else {
 
         req.user = decoded;
@@ -18,7 +18,7 @@ exports.verifyToken = (req, res, next) => {
       }
     });
   } else {
-    return res.status(401).json({ error: "Unauthorized" });
+    return res.status(401).json({ error: "Unauthorized11" });
   }
 };
 

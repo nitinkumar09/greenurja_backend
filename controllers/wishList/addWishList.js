@@ -4,7 +4,7 @@ const WishList = require('../../models/wishList');
 exports.addWishList = async (req, res) => {
   const { productId } = req.body;
   const userId = req.user.id;
-  console.log("userId",userId);
+  console.log("userId", userId);
   try {
     const wishlist = await WishList.findOneAndUpdate(
       { userId },                             // ← use “userId” here
