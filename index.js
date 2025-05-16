@@ -2,12 +2,12 @@
 require("./connectDb/conn");
 // index.js (top of file)
 require('dotenv').config();
-const {SMSALERT_API_KEY,SMSALERT_SENDER} = process.env;
-console.log(SMSALERT_API_KEY,SMSALERT_SENDER);
+const { SMSALERT_API_KEY, SMSALERT_SENDER } = process.env;
+console.log(SMSALERT_API_KEY, SMSALERT_SENDER);
 
 
 const https = require("https");
-const {URLSearchParams} = require("url");
+const { URLSearchParams } = require("url");
 // const cookieParser = require("cookie-parser");
 const express = require("express");
 const cors = require("cors");
