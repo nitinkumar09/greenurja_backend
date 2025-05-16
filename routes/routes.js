@@ -21,6 +21,7 @@ const getWishList = require("../controllers/wishList/getWishList");
 const deleteWishList = require("../controllers/wishList/deleteWishList");
 const postCart = require("../controllers/cart/postCart");
 const deleteCart = require("../controllers/cart/deleteCart");
+const getCart = require("../controllers/cart/getCart");
 const mergeCart = require("../controllers/cart/merge");
 router.post("/carousel", postCarousel.postCarousel);
 router.get("/carousel", getCarousel.getCarousel);
@@ -46,6 +47,7 @@ router.get("/wishList", verifyToken.verifyToken, getWishList.getWishList); // Ad
 
 router.post("/cart", verifyToken.verifyToken, postCart.postCart); // Adjust the path as necessary
 router.delete("/cart", verifyToken.verifyToken, deleteCart.deleteCart); // Adjust the path as necessary
+router.get("/cart", verifyToken.verifyToken, getCart.getCart); // Adjust the path as necessary
 router.post("/cart/merge", verifyToken.verifyToken, mergeCart.mergeCart);
 // router.post("/cart/merge", mergeCart.mergeCart);
 
