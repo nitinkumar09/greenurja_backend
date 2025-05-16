@@ -11,7 +11,7 @@ exports.signUp = async (req, res) => {
             return res.status(400).json({ error: "User already exists" });
         }
 
-        // Create a new user add phone alo
+        // Create a new user add phone debugging
 
         const newUser = new User({
             firstName,
