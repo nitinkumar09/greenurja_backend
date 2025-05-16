@@ -10,7 +10,7 @@ const userSchema = new Schema({
   city: { type: String, default: null },
   state: { type: String, default: null },
   country: { type: String, default: null },
-  pincode: { type: String,default: null },
+  pincode: { type: String, default: null },
   giftCoins: { type: Number, default: 0 },
   rewardCoins: { type: Number, default: 0 },
 });
