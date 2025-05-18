@@ -23,6 +23,8 @@ const postCart = require("../controllers/cart/postCart");
 const deleteCart = require("../controllers/cart/deleteCart");
 const getCart = require("../controllers/cart/getCart");
 const mergeCart = require("../controllers/cart/merge");
+const sellerController = require('../controllers/seller/getSellerByPin');// Saller routes
+router.get('/seller-by-pin/:pin', sellerController.getSellerByPin);
 router.post("/carousel", postCarousel.postCarousel);
 router.get("/carousel", getCarousel.getCarousel);
 router.get("/categories", getCategories.getCategories);
