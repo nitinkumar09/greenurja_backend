@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
-
-mongoose.set("strictQuery", true);
+require('dotenv').config();
+mongoose.set('strictQuery', true);
 mongoose
-  .connect(
-    "mongodb+srv://yadavkapil2336:green@cluster0.tzemhov.mongodb.net/greenurja",
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("running succesfully");
   })
