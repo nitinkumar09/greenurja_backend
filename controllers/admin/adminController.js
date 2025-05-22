@@ -2,8 +2,9 @@ const Admin = require('../../models/Admin');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const { JWT_ADMIN_PASSWORD } = require('../../config');
+const { JWT_ADMIN_PASSWORD } = process.env.JWT_ADMIN_PASSWORD; // use enev
 console.log(JWT_ADMIN_PASSWORD);
+console.log(process.env.JWT_ADMIN_PASSWORD)
 const loginAdmin = async (req, res) => {
     const { role, adminId, password } = req.body;
 
