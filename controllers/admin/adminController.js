@@ -34,7 +34,7 @@ const loginAdmin = async (req, res) => {
             message: 'Admin logged in successfully',
             token,
             role: admin.role,
-            password: admin.password,
+            // password: admin.password,
             adminId: admin.adminId
         });
     } catch (err) {

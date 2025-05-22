@@ -12,6 +12,9 @@ const getProduct = require("../controllers/products/getProduct");
 const signUp = require("../controllers/authorisation/signUp");
 const login = require("../controllers/authorisation/login");
 const adminlogin = require("../controllers/admin/adminController");
+const sellerlogin = require("../controllers/sellerlogin/sellerLogin");
+
+
 const guestToken = require("../controllers/authorisation/guestToken");
 const resetPassword = require("../controllers/authorisation/resetPassword");
 const getCategory = require("../controllers/categories/getCategory");
@@ -39,6 +42,8 @@ router.put("/product", updateProduct.updateProduct); // Assuming you have an upd
 router.post("/signUp", signUp.signUp);
 router.post("/login", login.login);
 router.post("/adminlogin", adminlogin.loginAdmin);
+router.post("/sellerlogin", sellerlogin.loginSeller);
+
 router.post("/guestToken", guestToken.guestToken);
 router.post("/resetPassword", resetPassword.resetPassword);
 router.get("/category/:_id", getCategory.getCategory); // Adjust the path as necessary
