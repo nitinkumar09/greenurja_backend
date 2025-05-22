@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const adminSchema = new mongoose.Schema({
-    role: {
-        type: String,
-        required: true,
-        enum: ['admin', 'superadmin'], // you can customize
-    },
+    // role: {
+    //     type: String,
+    //     required: true,
+    //     enum: ['admin', 'superadmin'], // you can customize
+    // },
     adminId: {
         type: String,
         required: true,

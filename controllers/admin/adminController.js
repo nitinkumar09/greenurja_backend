@@ -7,14 +7,14 @@ const { JWT_ADMIN_PASSWORD } = require('../../config');
 
 // Admin Login Controllers
 const loginAdmin = async (req, res) => {
-    const { role, adminId, password } = req.body;
+    const { adminId, password } = req.body;
 
-    if (!role || !adminId || !password) {
+    if (!adminId || !password) {
         return res.status(400).json({ error: 'All fields are required' });
     }
 
     try {
-        const admin = await Admin.findOne({ adminId, role });
+        const admin = await Admin.findOne({ adminId });
         if (!admin) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
@@ -25,7 +25,7 @@ const loginAdmin = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { id: admin._id, role: admin.role },
+            { id: admin._id },
             JWT_ADMIN_PASSWORD,
             { expiresIn: '1d' }
         );
@@ -33,8 +33,6 @@ const loginAdmin = async (req, res) => {
         res.status(200).json({
             message: 'Admin logged in successfully',
             token,
-            role: admin.role,
-            // password: admin.password,
             adminId: admin.adminId
         });
     } catch (err) {
