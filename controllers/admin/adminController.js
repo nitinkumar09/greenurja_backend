@@ -1,8 +1,11 @@
 const Admin = require('../../models/Admin');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const JWT_ADMIN_PASSWORD = process.env.JWT_ADMIN_PASSWORD;// use enev
+const { JWT_ADMIN_PASSWORD } = require('../../config');
+
+// Admin Login Controllers
 const loginAdmin = async (req, res) => {
     const { role, adminId, password } = req.body;
 
@@ -16,8 +19,8 @@ const loginAdmin = async (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
-        // Simple text password check (no bcrypt)
-        if (admin.password !== password) {
+        const isMatch = await bcrypt.compare(password, admin.password);
+        if (!isMatch) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
@@ -31,8 +34,8 @@ const loginAdmin = async (req, res) => {
             message: 'Admin logged in successfully',
             token,
             role: admin.role,
-            adminId: admin.adminId,
-            password: admin.password
+            password: admin.password,
+            adminId: admin.adminId
         });
     } catch (err) {
         console.error('Login error:', err.message);
