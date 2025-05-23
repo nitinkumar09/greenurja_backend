@@ -13,7 +13,7 @@ const signUp = require("../controllers/authorisation/signUp");
 const login = require("../controllers/authorisation/login");
 const adminlogin = require("../controllers/admin/adminController");
 const sellerlogin = require("../controllers/sellerlogin/sellerLogin");
-const sellerregister = require('../controllers/sellerRegister/registerSellerController');
+const registerPendingSeller = require('../controllers/registerpendingSeller/registerPendingSeller');
 const guestToken = require("../controllers/authorisation/guestToken");
 const resetPassword = require("../controllers/authorisation/resetPassword");
 const getCategory = require("../controllers/categories/getCategory");
@@ -42,8 +42,7 @@ router.post("/signUp", signUp.signUp);
 router.post("/login", login.login);
 router.post("/adminlogin", adminlogin.loginAdmin);
 router.post("/sellerlogin", sellerlogin.loginSeller);
-router.post("/sellerregister", sellerregister.registerSeller)
-
+router.post("/registerpendingseller", registerPendingSeller.registerpendinggSeller);
 router.post("/guestToken", guestToken.guestToken);
 router.post("/resetPassword", resetPassword.resetPassword);
 router.get("/category/:_id", getCategory.getCategory); // Adjust the path as necessary
