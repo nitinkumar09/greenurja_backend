@@ -1,4 +1,4 @@
-const Seller = require('../../models/SellerloginModel');
+const SellerLogin = require('../../models/SellerRegister');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
@@ -15,7 +15,8 @@ const loginSeller = async (req, res) => {
     }
 
     try {
-        const seller = await Seller.findOne({ email });
+        const seller = await SellerLogin.findOne({ email });
+        console.log(seller)
         if (!seller) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
