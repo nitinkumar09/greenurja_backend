@@ -1,6 +1,6 @@
 const PendingSeller = require("../../models/PendingSeller");
 
-// GET all pending sellers
+// GET all pending sellers to show for admin
 const getAllPendingSellers = async (req, res) => {
     try {
         const pendingSellers = await PendingSeller.find({}, { password: 0 }); // exclude password for security
