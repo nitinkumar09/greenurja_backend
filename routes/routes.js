@@ -32,6 +32,8 @@ const mergeCart = require("../controllers/cart/merge");
 const sellerController = require('../controllers/seller/getSellerByPin');// Saller routes
 const approveSeller = require("../controllers/approveSeller/approveSeller");
 const rejectSeller = require('../controllers/rejectSeller/rejectSeller');
+const getApprovedSeller = require('../controllers/getApprovedSellers/getApprovedSellers')
+router.get('/approved-sellers-to-show', getApprovedSeller.getApprovedSellerstoShow);
 router.post('/reject-seller/:id', rejectSeller.rejectSeller);
 router.get('/seller-by-pin/:pin', sellerController.getSellerByPin);
 router.post("/approve-seller/:id", approveSeller.approveSeller);
