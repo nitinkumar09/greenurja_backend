@@ -32,9 +32,13 @@ const mergeCart = require("../controllers/cart/merge");
 const sellerController = require('../controllers/seller/getSellerByPin');// Saller routes
 const approveSeller = require("../controllers/approveSeller/approveSeller");
 const rejectSeller = require('../controllers/rejectSeller/rejectSeller');
+const deleteApprovedSeller = require('../controllers/deleteApprovedSeller/deleteAppSeller');
+
 const getApprovedSeller = require('../controllers/getApprovedSellers/getApprovedSellers')
 router.get('/approved-sellers-to-show', getApprovedSeller.getApprovedSellerstoShow);
 router.post('/reject-seller/:id', rejectSeller.rejectSeller);
+router.post('/delete-seller/:id', deleteApprovedSeller.deleteApprovedSeller);
+
 router.get('/seller-by-pin/:pin', sellerController.getSellerByPin);
 router.post("/approve-seller/:id", approveSeller.approveSeller);
 router.post("/carousel", postCarousel.postCarousel);
