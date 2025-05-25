@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const verifyToken = require("../middlewares/verifyToken");
+const verifyAdmin = require("../middlewares/verifyAdmin");
+
 
 const postCarousel = require("../controllers/carousel/postCarousel");
 const getCarousel = require("../controllers/carousel/getCarousel");
@@ -28,7 +30,9 @@ const deleteCart = require("../controllers/cart/deleteCart");
 const getCart = require("../controllers/cart/getCart");
 const mergeCart = require("../controllers/cart/merge");
 const sellerController = require('../controllers/seller/getSellerByPin');// Saller routes
+const approveSeller = require("../controllers/approveSeller/approveSeller");
 router.get('/seller-by-pin/:pin', sellerController.getSellerByPin);
+router.post("/approve-seller/:id", approveSeller.approveSeller);
 router.post("/carousel", postCarousel.postCarousel);
 router.get("/carousel", getCarousel.getCarousel);
 router.get("/categories", getCategories.getCategories);
