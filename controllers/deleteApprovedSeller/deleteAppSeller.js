@@ -18,7 +18,7 @@ exports.deleteApprovedSeller = async (req, res) => {
         // seller.rejected = true;
         // await seller.save();
 
-        return res.status(200).json({ message: 'Seller Delete successfully' });
+        return res.status(200).json({ message: 'Approved Seller Delete successfully' });
     } catch (error) {
         console.error('Error Deleting seller:', error);
         res.status(500).json({ message: 'Internal server error' });
