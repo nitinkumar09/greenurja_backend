@@ -1,4 +1,4 @@
-const SellerLogin = require('../../models/PendingSeller');
+const SellerLogin = require('../../models/ApprovedSeller');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
