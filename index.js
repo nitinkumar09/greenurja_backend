@@ -11,8 +11,17 @@ const { URLSearchParams } = require("url");
 // const cookieParser = require("cookie-parser");
 const express = require("express");
 const cors = require("cors");
+const fs = require("fs");
 const app = express();
 const route = require("./routes/routes");
+
+// for upload xl file
+if (!fs.existsSync("uploads")) {
+  fs.mkdirSync("uploads");
+}
+
+
+
 app.use(cors());
 app.use(express.json());
 
@@ -61,6 +70,15 @@ app.use("/api", route);
 
 
 
+// ✅ Error handling middleware — yaha likho
+app.use((err, req, res, next) => {
+  if (err instanceof multer.MulterError) {
+    return res.status(400).json({ message: err.message });
+  } else if (err) {
+    return res.status(400).json({ message: err.message });
+  }
+  next();
+});
 
 
 const port = process.env.PORT || 3001;

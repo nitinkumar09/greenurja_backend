@@ -33,8 +33,11 @@ const sellerController = require('../controllers/seller/getSellerByPin');// Sall
 const approveSeller = require("../controllers/approveSeller/approveSeller");
 const rejectSeller = require('../controllers/rejectSeller/rejectSeller');
 const deleteApprovedSeller = require('../controllers/deleteApprovedSeller/deleteAppSeller');
-
 const getApprovedSeller = require('../controllers/getApprovedSellers/getApprovedSellers')
+const uploadExcel = require("../controllers/productMaster/productController");
+const upload = require("../middlewares/upload");
+
+router.post("/upload-excel", upload.single("file"), uploadExcel.uploadExcel);
 router.get('/approved-sellers-to-show', getApprovedSeller.getApprovedSellerstoShow);
 router.post('/reject-seller/:id', rejectSeller.rejectSeller);
 router.post('/delete-seller/:id', deleteApprovedSeller.deleteApprovedSeller);
